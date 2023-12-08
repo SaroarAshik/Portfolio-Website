@@ -147,6 +147,7 @@ function getServicesData() {
                     $('#mainDiv').removeClass('d-none');
                     $('#loaderDiv').addClass('d-none');
 
+                    $('#serviceDataTable').DataTable().destroy();
                     $('#service_table').empty();
                 
                     var jsonData = response.data;
@@ -168,7 +169,7 @@ function getServicesData() {
                         $('#deleteModal').modal('show');
 
                     })
-                    
+                            
                     // Services Table Edit Icon Click
                     $('.serviceEditBtn').click(function() {
                             var id = $(this).data('id');
@@ -177,7 +178,10 @@ function getServicesData() {
                             $('#editModal').modal('show');
 
                     })
-               
+
+                    $('#serviceDataTable').DataTable({"order":false});
+                    $('.dataTables_length').addClass('bs-select');
+
             }else {
 
                 $('#loaderDiv').addClass('d-none');
@@ -192,6 +196,7 @@ function getServicesData() {
         });
 
 }
+
 
 // Each Service Update Details(Data show in modal)
 function ServiceUpdateDetails(detailsID) {
@@ -245,29 +250,28 @@ function ServiceUpdate(serviceID,serviceName,serviceDes,serviceImg) {
         else if(serviceImg.length==0){
             toastr.error('Service Image is Empty !');
         }
-  else{
+        else{
         $('#serviceEditConfirmBtn').html("<div class='spinner-border spinner-border-sm' role='status'></div>") //Animation....
         axios.post('/ServiceUpdate', {
                 id: serviceID,
                 name: serviceName,
                 des: serviceDes,
                 img: serviceImg,
-
         })
       .then(function(response){
             $('#serviceEditConfirmBtn').html("Save");
 
             if(response.status==200){
 
-                if (response.data == 1) {
+               if (response.data == 1) {
                     $('#editModal').modal('hide');
                     toastr.success('Update Success');
                     getServicesData();
-            }else{
+                }else{
                     $('#editModal').modal('hide');
                     toastr.error('Update Fail');
                     getServicesData();
-           }  
+               }  
         } 
        else{
             $('#editModal').modal('hide');
@@ -390,6 +394,7 @@ function ServiceAdd(serviceName,serviceDes,serviceImg){
         }
 
 }
+
 
 
 

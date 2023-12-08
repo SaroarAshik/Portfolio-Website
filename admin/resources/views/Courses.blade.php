@@ -168,9 +168,11 @@ function getCoursesData() {
                 $('#mainDivCourse').removeClass('d-none');
                 $('#loaderDivCourse').addClass('d-none');
 
+               
                 $('#courseDataTable').DataTable().destroy();
-                
                 $('#course_table').empty();
+             
+
                 var jsonData = response.data;
                 $.each(jsonData, function(i, item) {
                     $('<tr>').html(
@@ -349,9 +351,8 @@ function CourseDelete(deleteID) {
 }
         
 
-        // Course Update
-
-        function CourseUpdateDetails(detailsID){
+// Course Update
+function CourseUpdateDetails(detailsID){
                   axios.post('/CoursesDetails', {
                     id: detailsID
                   })
@@ -380,17 +381,19 @@ function CourseDelete(deleteID) {
                       $('#courseEditWrong').removeClass('d-none');
                 });
 
-        }
+}
+
+
 
 $('#CourseUpdateConfirmBtn').click(function(){
-var courseID=$('#courseEditId').html();
-var  courseName=$('#CourseNameUpdateId').val();
-var  courseDes=$('#CourseDesUpdateId').val();
-var courseFee=$('#CourseFeeUpdateId').val();
-var  courseEnroll=$('#CourseEnrollUpdateId').val();
-var  courseClass=$('#CourseClassUpdateId').val();
-var courseLink=$('#CourseLinkUpdateId').val();
-var  courseImg=$('#CourseImgUpdateId').val();
+        var courseID=$('#courseEditId').html();
+        var  courseName=$('#CourseNameUpdateId').val();
+        var  courseDes=$('#CourseDesUpdateId').val();
+        var courseFee=$('#CourseFeeUpdateId').val();
+        var  courseEnroll=$('#CourseEnrollUpdateId').val();
+        var  courseClass=$('#CourseClassUpdateId').val();
+        var courseLink=$('#CourseLinkUpdateId').val();
+        var  courseImg=$('#CourseImgUpdateId').val();
 CourseUpdate(courseID,courseName,courseDes,courseFee,courseEnroll,courseClass,courseLink,courseImg);
 })
 function CourseUpdate(courseID,courseName,courseDes,courseFee,courseEnroll,courseClass,courseLink,courseImg) {
