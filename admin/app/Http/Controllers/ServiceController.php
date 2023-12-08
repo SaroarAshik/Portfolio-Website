@@ -35,7 +35,7 @@ class ServiceController extends Controller{
                 else{
                     return 0;
                 }
-    }
+        }
 
 
         function ServiceDelete(Request $req){
@@ -48,7 +48,7 @@ class ServiceController extends Controller{
             else{
                 return 0;
             }
-    }
+        }
 
 
     function ServiceAdd(Request $req){
