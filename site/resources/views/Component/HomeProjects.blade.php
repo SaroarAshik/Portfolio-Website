@@ -27,4 +27,7 @@
             <i id="customNextBtn" class="btn normal-btn">></i>
             <button class="normal-btn  btn">সব গুলো </button>
         </div>
+
     </div>
+
+

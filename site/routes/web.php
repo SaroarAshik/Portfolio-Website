@@ -7,3 +7,5 @@
 
 
 Route::get('/', 'HomeController@HomeIndex');
+
+Route::post('/contactSend', 'HomeController@ContactSend');
