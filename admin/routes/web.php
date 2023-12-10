@@ -38,3 +38,13 @@ Route::post('/ProjectAdd', 'ProjectController@ProjectAdd');
 Route::get('/Contact', 'ContactController@ContactIndex');
 Route::get('/getContactData', 'ContactController@getContactData');
 Route::post('/ContactDelete', 'ContactController@ContactDelete');
+
+
+
+// Admin Panel Review
+Route::get('/Review', 'ReviewController@ReviewIndex');
+Route::get('/getReviewData', 'ReviewController@getReviewData');
+Route::post('/ReviewDetails', 'ReviewController@getReviewDetails');
+Route::post('/ReviewDelete', 'ReviewController@ReviewDelete');
+Route::post('/ReviewUpdate', 'ReviewController@ReviewUpdate');
+Route::post('/ReviewAdd', 'ReviewController@ReviewAdd');
