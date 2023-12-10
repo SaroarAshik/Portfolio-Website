@@ -4,7 +4,6 @@
     <div class="row">
 
 
-
         @foreach($ServicesData as $ServicesData)
         <div class="col-md-3 p-2 ">
             <div class="card service-card text-center w-100">
@@ -16,8 +15,6 @@
             </div>
         </div>
         @endforeach
-
-
 
     </div>
 </div>
