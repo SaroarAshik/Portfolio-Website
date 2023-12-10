@@ -1,1 +1,7 @@
-<h1>This is Project page</h1> 
+
+@extends('Layout.app')
+@section('title','Projects')
+@section('content')
+    @include('Component.ProjectPageTopBanner')
+    @include('Component.AllProject')
+@endsection
