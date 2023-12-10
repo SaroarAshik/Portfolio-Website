@@ -22,8 +22,9 @@ class HomeController extends Controller{
             $CoursesData= json_decode(CourseModel::orderBy('id','desc')->limit(6)->get());
             $ProjectData=json_decode(ProjectsModel::orderBy('id','desc')->get());
             $ReviewData= json_decode( ReviewModel::all());
+            //json_decode mean get associative array
 
-            return view('Home',[
+            return view('home',[
                 'ServicesData'=>$ServicesData,
                 'CoursesData'=>$CoursesData,
                 'ProjectData'=>$ProjectData,
