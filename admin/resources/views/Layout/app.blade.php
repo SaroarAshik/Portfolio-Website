@@ -28,9 +28,7 @@
 
 @include('Layout.menu')
 
-
 @yield('content')
-
 
 
 </div>
