@@ -34,11 +34,11 @@ Route::post('/ProjectUpdate', 'ProjectController@ProjectUpdate');
 Route::post('/ProjectAdd', 'ProjectController@ProjectAdd');
 
 
+
 // Admin Panel Contact
 Route::get('/Contact', 'ContactController@ContactIndex');
 Route::get('/getContactData', 'ContactController@getContactData');
 Route::post('/ContactDelete', 'ContactController@ContactDelete');
-
 
 
 // Admin Panel Review
@@ -48,3 +48,8 @@ Route::post('/ReviewDetails', 'ReviewController@getReviewDetails');
 Route::post('/ReviewDelete', 'ReviewController@ReviewDelete');
 Route::post('/ReviewUpdate', 'ReviewController@ReviewUpdate');
 Route::post('/ReviewAdd', 'ReviewController@ReviewAdd');
+
+
+// Admin Panel Review Management
+Route::get('/Login', 'LoginController@LoginIndex');
+Route::post('/onLogin', 'LoginController@onLogin');
