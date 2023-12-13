@@ -19,11 +19,7 @@
 
 
 
-
 @yield('content')
-
-
-
 
 
 
