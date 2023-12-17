@@ -161,6 +161,7 @@ function getServicesData() {
                             "<td><a  class='serviceDeleteBtn'  data-id=" + jsonData[i].id +" ><i class='fas fa-trash-alt'></i></a></td>"
                         ).appendTo('#service_table');
                     });
+                    //(each)works as an alternative to the(loop)
 
                     // Services Table Delete Icon Click
                     $('.serviceDeleteBtn').click(function() {

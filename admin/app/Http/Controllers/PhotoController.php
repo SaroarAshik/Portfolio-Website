@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 class PhotoController extends Controller{
 
     function PhotoIndex(){
-        return view('Gallery');
+        return view('Photo');
     }
 
     function PhotoUpload(Request $request){
@@ -31,5 +31,30 @@ class PhotoController extends Controller{
         }
 
     }
+
+    function PhotoJSON(Request $request){
+        return PhotoModel::take(3)->get();
+    }
+
+    function PhotoJSONByID(Request $request){
+        $FirstID=$request->id;
+        $LastID=$FirstID+3;
+        return PhotoModel::where('id','>=',$FirstID)->where('id','<',$LastID)->get();
+    }
+
+    function PhotoDelete(Request  $request){
+
+        $OldPhotoURL=$request->input('OldPhotoURL');
+        $OldPhotoID=$request->input('id');
+  
+        $OldPhotoURLArray= explode("/", $OldPhotoURL);
+        $OldPhotoName=end($OldPhotoURLArray);
+        $DeletePhotoFile= Storage::delete('public/'.$OldPhotoName);
+  
+        $DeleteRow= PhotoModel::where('id','=',$OldPhotoID)->delete();
+        return  $DeleteRow;
+    }
+
+    
     
 }

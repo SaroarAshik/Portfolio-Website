@@ -5,7 +5,6 @@
 //     return view('home');
 // });
 
-
 Route::get('/', 'HomeController@HomeIndex')->middleware('loginCheck');
 Route::get('/visitor', 'VisitorController@VisitorIndex')->middleware('loginCheck');
 
@@ -33,13 +32,10 @@ Route::post('/ProjectDelete', 'ProjectController@ProjectDelete')->middleware('lo
 Route::post('/ProjectUpdate', 'ProjectController@ProjectUpdate')->middleware('loginCheck');
 Route::post('/ProjectAdd', 'ProjectController@ProjectAdd')->middleware('loginCheck');
 
-
-
 // Admin Panel Contact
 Route::get('/Contact', 'ContactController@ContactIndex')->middleware('loginCheck');
 Route::get('/getContactData', 'ContactController@getContactData')->middleware('loginCheck');
 Route::post('/ContactDelete', 'ContactController@ContactDelete')->middleware('loginCheck');
-
 
 // Admin Panel Review
 Route::get('/Review', 'ReviewController@ReviewIndex')->middleware('loginCheck');
@@ -49,13 +45,14 @@ Route::post('/ReviewDelete', 'ReviewController@ReviewDelete')->middleware('login
 Route::post('/ReviewUpdate', 'ReviewController@ReviewUpdate')->middleware('loginCheck');
 Route::post('/ReviewAdd', 'ReviewController@ReviewAdd')->middleware('loginCheck');
 
-
 // Admin Panel Review Management
 Route::get('/Login', 'LoginController@LoginIndex');
 Route::post('/onLogin', 'LoginController@onLogin');
 Route::get('/Logout', 'LoginController@onLogout');
 
-
 // Admin Photo Gallery
-Route::get('/Photo', 'PhotoController@PhotoIndex');
-Route::post('/PhotoUpload', 'PhotoController@PhotoUpload');
+Route::get('/Photo', 'PhotoController@PhotoIndex')->middleware('loginCheck');
+Route::post('/PhotoUpload', 'PhotoController@PhotoUpload')->middleware('loginCheck');
+Route::get('/PhotoJSON', 'PhotoController@PhotoJSON')->middleware('loginCheck');
+Route::get('/PhotoJSONByID/{id}', 'PhotoController@PhotoJSONByID')->middleware('loginCheck');
+Route::post('/PhotoDelete', 'PhotoController@PhotoDelete')->middleware('loginCheck');
